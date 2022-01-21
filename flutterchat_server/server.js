@@ -1,9 +1,9 @@
 const express = require('express')
 const { listen } = require('socket.io')
 const app = express()
-const PORT = process.env.PORT || 4000
+const PORT = process.env.PORT || 3000
 
-const s = app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
     console.log('Server is listening.')
 })
 
@@ -93,5 +93,5 @@ io.on("kick", (inData, inCallback) => {
     const users = room.users
     delete users[inData.userName]
     io.broadcast.emit("kicked", room)
-    inCallback({ status = "ok" })
+    inCallback({ status : "ok" })
 })

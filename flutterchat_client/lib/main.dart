@@ -1,22 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:socket_io_client/socket_io_client.dart';
 
-void main(){
-  Socket socket = io('http://localhost:4000',
-      OptionBuilder()
-      .setTransports(['websocket'])
-      .build());
-  runApp(FlutterChat());
-
-  socket.on('connection', (data){
-    print(data);
-  });
-}
+void main() => runApp(FlutterChat());
 
 class FlutterChat extends StatelessWidget {
   @override
   Widget build(_) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         body: Center(
